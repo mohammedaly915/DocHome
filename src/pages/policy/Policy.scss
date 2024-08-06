@@ -1,0 +1,7 @@
+@use '../../helper/mixin' as *;
+.conditionContent{
+    cursor: pointer;
+}
+.policy{
+    background-color: $background-color;
+}

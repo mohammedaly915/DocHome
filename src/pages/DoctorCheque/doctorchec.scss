@@ -1,0 +1,252 @@
+@use '../../helper/mixin' as *;
+
+.chec_page {
+  @include flexstyle(column, center, center, 10px);
+
+  .chec_box {
+    @include flexstyle(column, center, normal, 10px);
+    width: 80%;
+    min-height: 100%;
+    margin: 15vh auto 10px auto;
+    background-color: $secondly-color;
+    border-radius: 10px;
+    box-shadow: -1px 0px 10px 8px rgba(0, 0, 0, 0.1);
+    text-transform: capitalize;
+    position: relative;
+
+    .chat_icon {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background-color: $prime-color;
+      border: none;
+      border-radius: 5px;
+      padding: 10px;
+      cursor: pointer;
+      color: #fff;
+      transition: background-color 0.3s, transform 0.3s;
+
+      &:hover {
+        background-color: darken($prime-color, 10%);
+        transform: scale(1.1);
+      }
+
+      svg {
+        color: $background2-color;
+        font-size: 24px;
+        margin-left: 15px;
+      }
+    }
+
+    .doctor_info {
+      padding: 0;
+      @include displayStyle(flex, center, flex-start);
+      margin: 0 auto;
+      width: 80%;
+      border-bottom: 1px solid gray;
+      padding: 30px 0;
+
+      img {
+        width: 70px;
+        height: 70px;
+        border-radius: 6px;
+        border: 2px solid $mainly-color;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      .doc_name {
+        @include flexstyle(column, center, flex-start, 10px);
+        width: 80%;
+        padding: 0 10px;
+
+        h3 {
+          font-size: 24px;
+          font-weight: 700;
+          color: $prime-color;
+          letter-spacing: 1px;
+        }
+
+        .doc_rate {
+          @include displayStyle(flex, center, center);
+          gap: 10px;
+
+          .stars {
+            @include starRate(20px);
+
+          }
+
+          .digits {
+            font-size: 14px;
+            color: $mainly-color;
+          }
+        }
+
+        p {
+          font-size: 14px;
+          text-align: start;
+          line-height: 1.5;
+          color: #333;
+        }
+
+        .doc_reveiw {
+          width: 60%;
+          @include displayStyle(flex, space-between, center);
+          box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.1);
+          border-radius: 6px;
+
+          .reveiws,
+          .add_reveiw {
+            width: 50%;
+            cursor: pointer;
+            text-align: center;
+            padding: 10px 0;
+            transition: background-color 0.3s, color 0.3s;
+            &:hover{
+              border: none;
+            }
+          }
+
+          .reveiws {
+            border-right: 1px solid gray;
+            &:hover {
+              background-color: $prime-color;
+              color: $background2-color;
+              border-top-left-radius: 6px;
+              border-bottom-left-radius: 6px;
+              border: none;
+            }
+          }
+
+          .add_reveiw {
+            text-decoration: underline;
+            &:hover {
+              background-color: $prime-color;
+              color: $background2-color;
+              border-top-right-radius: 6px;
+              border-bottom-right-radius: 6px;
+            }
+          }
+
+          .rev {
+            font-size: 14px;
+            
+          }
+        }
+      }
+    }
+
+    .doctor_specs {
+      width: 80%;
+      @include flexstyle(column, center, center, 5px);
+      margin: 0 auto;
+
+      h3 {
+        font-size: 20px;
+        font-weight: 700;
+        color: $prime-color;
+        width: 100%;
+        text-align: center;
+      }
+
+      .specs {
+        width: 100%;
+        @include flexstyle(row, flex-start, center, 5px);
+        flex-wrap: wrap;
+
+        p {
+          font-size: 14px;
+          background-color: #f0f0f0;
+          color: #333;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          padding: 5px 10px;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+          transition: background-color 0.3s;
+
+          &:hover {
+            background-color: $prime-color;
+            color: $background2-color;
+          }
+        }
+      }
+    }
+
+    .selected_services {
+        width: 80%;
+        @include flexstyle(column, center, center, 5px);
+        margin: 20px auto;
+  
+        h3 {
+          font-size: 20px;
+          font-weight: 700;
+          color: $prime-color;
+          width: 80%;
+          text-align: center;
+        }
+  
+        .servise {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            padding: 10px;
+            background: #f0f0f0;
+            border-radius: 4px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 10px;
+            p{
+                margin: 0;
+            }
+            .end{
+                display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+                p{
+
+                }
+                .remove_icon {
+                    display: none;
+                    color: $cancel-color;
+                    border: none;
+                    border-radius: 4px;
+                    padding: 5px 10px;
+                    font-size: 40px;
+                    cursor: pointer;
+                    transition: background-color 0.3s;
+          
+                    &:hover {
+                      color: darken($cancel-color, 10%);
+                    }
+                  }
+            }
+            &:hover{
+                .remove_icon {
+                    display: block;
+                }
+            }
+          }
+    
+          .totals {
+            font-weight: 700;
+            color: $prime-color;
+          }
+      }
+
+    .appionment_btn {
+      width: 80%;
+      background-color: $prime-color;
+      color: $background2-color;
+      text-align: center;
+      padding: 10px 0;
+      margin: 20px auto;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+
+      &:hover {
+        background-color: darken($prime-color, 10%);
+      }
+    }
+  }
+}

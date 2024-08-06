@@ -1,0 +1,115 @@
+@use '../../helper//mixin' as *;
+
+.doctor-page { 
+  @include flexstyle(column, center, center, 5px);
+  width: calc(100% - 250px);
+  margin-left: 250px;
+  margin-top: 90px;
+
+  h1 {
+    margin-bottom: 20px;
+  }
+  .filter-icon {
+    margin-right: 20px;
+    span{
+      font-size: 20px;
+      font-weight: 700;
+    }
+    .toggle-icon {
+      font-size: 2rem;
+      color: $unactive;
+      cursor: pointer;
+
+      &.active {
+        color: $active-color;
+        &:hover {
+            color: rgba($color: $active-color, $alpha: 0.5);
+          }
+      }
+
+      &:hover {
+        color: #0056b2;
+      }
+    }
+  }
+
+  .filter-controls {
+    @include flexstyle(row, center, center, 10px);
+    margin-bottom: 20px;
+
+    .filter-icon {
+      margin-right: 20px;
+      
+      .toggle-icon {
+        font-size: 2rem;
+        color: $unactive;
+        cursor: pointer;
+        
+        &.active {
+          color: $active-color;
+        }
+
+        &:hover {
+          color: #0056b3;
+        }
+      }
+    }
+
+    input {
+      padding: 10px;
+      margin-right: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+  }
+  .doctors {
+    @include flexstyle(column, center, flex-start, 5px);
+    flex-wrap: wrap;
+    width: 100%;
+
+    .doctors-header {
+      @include size(90%, 10vh);
+      @include flexstyle(column, center, flex-start, 0px);
+      color: $prime-color;
+      padding: 10px;
+
+      p {
+        @include font_height(20%, 20px, 500);
+        margin-top: 20px;
+      }
+
+      .location-change {
+        @include displayStyle(flex, flex-start, center);
+        @include size(90%, 30%);
+        gap: 5px;
+
+        span {
+          @include font_height(100%, 10px, 400);
+          color: $mainly-color;
+          padding: 0;
+        }
+
+        .change {
+          font-weight: 600;
+          color: $mainly-color;
+          font-size: 10px;
+          text-decoration: none;
+          cursor: pointer;
+
+          &:hover {
+            color: $prime-color;
+          }
+        }
+      }
+    }
+  }
+}
+
+.doctor-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    gap: 20px;
+    width: 100%;
+
+  
+}

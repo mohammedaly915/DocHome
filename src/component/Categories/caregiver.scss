@@ -1,0 +1,65 @@
+@use '../../helper/mixin' as *;
+
+.caregiver-page {
+  @include flexstyle(column, center, center, 10px);
+
+  .caregiver-box {
+    min-height: calc(90vh - 80px);
+    overflow-y: scroll;
+    padding: 20px;
+    background-color: white;
+    border-radius: 25px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+    .back-link {
+      color: $prime-color;
+      width: fit-content;
+      cursor: pointer;
+      text-decoration: none;
+      h2{
+        font-size: 1.5rem;
+      }
+      font-size: 16px;
+    }
+
+    .filter-icon {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+      background-color: #f8f9fa; // Light background color
+      padding: 10px 20px; // Padding for spacing
+      border-radius: 8px; // Rounded corners
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); // Subtle shadow
+    
+      .toggle-icon {
+        font-size: 2rem;
+        cursor: pointer;
+        transition: color 0.3s, transform 0.3s; // Smooth transition for color and transform
+        color: #6c757d; // Default color
+    
+        &:hover {
+          color: $prime-color; // Change color on hover
+          transform: scale(1.1); // Slightly enlarge on hover
+        }
+    
+        &.active {
+          color: $active-color; // Active color
+        }
+      }
+    
+      span {
+        font-size: 1.2rem; // Adjust font size
+        color: $prime-color; // Text color
+        margin-right: 10px; // Space between text and icon
+        align-self: center; // Center text vertically
+      }
+    }
+    
+
+    .caregivers {
+      width: 80%;
+      @include flexstyle(column, center, center, 5px);
+      margin:0 auto ;
+    }
+  }
+}

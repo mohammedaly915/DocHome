@@ -1,0 +1,69 @@
+@use "../../helper/mixin" as *;
+$primary-color: #28343C;
+$secondary-color: #FFF;
+
+
+.custom-select {
+  position: relative;
+  font-family: Arial;
+  width: 80%;
+}
+
+.select-selected {
+  @include inputs(40px,100%);
+  @include displayStyle(flex,center,center);
+  transition: all 0.3s ease;
+  &::after{
+      position: relative;
+      content: "";
+      top: 10%;
+      left: 20%; // Adjust as needed
+      width: 0;
+      height: 0;
+      border: 6px solid transparent;
+      border-color: $primary-color transparent transparent transparent;
+    }
+  &.active::after {
+    
+
+    //transform:rotate(180deg); // Rotate arrow when active
+  }
+}
+
+.select-items {
+  position: absolute;
+  background-color: $secondary-color;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 99;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  height: 200px;
+  box-shadow: 1px 1px 4px 0px rgba(0,0,0,0.1) ;
+  border-radius: 10px;
+  overflow-y: auto;
+  border-radius: 10px;
+
+  .select-item {
+    color: $primary-color;
+    padding: 8px 16px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    user-select: none;
+    border-radius: 5px;
+    width: 100%;
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.1);
+    }
+  }
+  &.select-hide {
+    display: none;
+  }
+
+
+}
+
+
+

@@ -1,0 +1,231 @@
+@use '../../helper/mixin' as *;
+.feedback-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+  
+    .feedback-box {
+      width: 90%;
+      max-width: 800px;
+      background-color: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+  
+      .header {
+        display: flex;
+        align-items: center;
+        color: #1976d2;
+        text-decoration: none;
+        font-size: 18px;
+        margin-bottom: 20px;
+      }
+  
+      .user-info {
+        margin-top: 20px;
+        img {
+          width: 80px;
+          height: 80px;
+          border-radius: 50%;
+          margin-bottom: 10px;
+        }
+      }
+  
+      .feedback-content {
+        width: 100%;
+        margin-top: 20px;
+      }
+  
+      .open-popup-btn {
+        background-color: #1976d2;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+  
+        &:hover {
+          background-color: #1565c0;
+        }
+      }
+    }
+  
+    .popup {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 100;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+  
+      &.open {
+        opacity: 1;
+        visibility: visible;
+      }
+  
+      .popup-content {
+        background-color: white;
+        border-radius: 5px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        width: 300px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+  
+        .star-rating {
+          display: flex;
+          justify-content: center;
+          margin-bottom: 10px;
+  
+          .star {
+            color: #ccc;
+            font-size: 24px;
+            cursor: pointer;
+            transition: color 0.3s ease;
+  
+            &.active,
+            &:hover {
+              color: gold;
+            }
+          }
+        }
+  
+        .feedback-comment {
+          width: 100%;
+          height: 100px;
+          margin-bottom: 10px;
+          padding: 10px;
+          font-size: 14px;
+          border: 1px solid #ccc;
+          border-radius: 5px;
+        }
+  
+        .submit-feedback-btn, .close-popup-btn {
+          background-color: #1976d2;
+          color: white;
+          border: none;
+          padding: 10px 20px;
+          border-radius: 5px;
+          cursor: pointer;
+          transition: background-color 0.3s ease;
+  
+          &:hover {
+            background-color: #1565c0;
+          }
+  
+          &.close-popup-btn {
+            margin-top: 10px;
+          }
+        }
+      }
+    }
+  }
+
+  .review {
+    display: flex;
+    flex-direction: column;
+    background-color: $background-color;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+  
+    &.odd {
+      background-color: $secondly-color;
+    }
+  
+    .account {
+      display: flex;
+      align-items: center;
+      margin-bottom: 5px;
+  
+      img {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        margin-right: 10px;
+      }
+  
+      p {
+        margin: 0;
+      }
+    }
+  
+    .rating {
+      display: flex;
+      align-items: center;
+      margin-bottom: 5px;
+  
+      .stars {
+        display: flex;
+        align-items: center;
+  
+        .star {
+          color: gold;
+          font-size: 16px;
+        }
+      }
+  
+      .date {
+        margin-left: auto;
+        font-size: 12px;
+      }
+    }
+  
+    .comment {
+      font-size: 14px;
+    }
+  }
+
+  .total-rating {
+    margin-bottom: 20px;
+  
+    p {
+      margin-bottom: 10px;
+    }
+  
+    .rating {
+      display: flex;
+      align-items: center;
+  
+      .rate {
+        font-size: 24px;
+        color: #757575;
+        margin-right: 10px;
+      }
+  
+      .stars {
+        display: flex;
+        align-items: center;
+  
+        .star {
+          color: gold;
+          font-size: 24px;
+        }
+      }
+  
+      .reviews {
+        font-size: 12px;
+        margin-left: 10px;
+      }
+    }
+  }
+  
+  
+  

@@ -1,0 +1,224 @@
+@use './../../helper/mixin' as *;
+
+.chat{
+    @include flexstyle(row,center,center,10px);
+    height: calc(90vh - 90px);;
+    margin-left: 250px;
+    padding: 0  20px;
+    margin-top: 90px;
+    .accounts{
+        @include flexstyle(column,flex-start,normal,10px);
+        @include size(30%,80%);
+        @include back-color-border($secondly-color,$secondly-color,1px solid $mainly-color ,10px );
+        text-transform: capitalize;
+        box-shadow: 5px 5px 10px 0px rgba(0,0,0,0.1);
+        .header{
+            height: 75px;
+            background-color: $background2-color;
+            @include flexstyle(row,center,center,10px);
+            .search{
+                color: $prime-color;
+                cursor: pointer;
+            }
+            .title{
+                color:$background3-color
+            }
+            .img{
+                img{
+                    width: 40px;
+                    height: 40px;
+                    border-radius: 50%
+                }
+            }
+        }
+        .users-box{
+            @include flexstyle(column,flex-start,center,10px);
+            padding: 5px;
+            overflow-y: scroll;
+            .user{
+                @include flexstyle(row,flex-start,center,10px);                height: 75px;
+                width: 100%;
+                padding: 5px 0 5px 10px;
+                cursor: pointer;
+                &:not(:last-child){
+                    border-bottom: 1px solid $background2-color;
+                }
+                img{
+                    @include size(40px,40px);
+                    border-radius:25px;
+                }
+                .content{
+                    @include flexstyle(column,center,flex-start,5px);
+                    h2{
+                        margin: 0;
+                        font-size: 14px;
+                        color: $mainly-color;
+                    }
+                    .msg{
+                        color:$background3-color;
+                        font-size: 10px;
+                        font-weight: 500;
+                        &.readed{
+                            color: $prime-color;
+                            font-size: 12px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .conversition{
+        @include flexstyle(column,center,normal,0);
+        @include size(70%,80%);
+        @include back-color-border($secondly-color,$mainly-color ,1px solid $mainly-color ,10px );
+        text-transform: capitalize;
+        box-shadow: 5px 5px 10px 0px rgba(0,0,0,0.1);
+        .conv-header{
+            background-color: $background2-color;
+            height: 15%;
+            padding: 20px;
+            @include displayStyle(flex,space-between,center);
+            .user-info{
+                @include flexstyle(row,flex-start,center,10px);
+                img{
+                    @include size(45px,45px);
+                    border-radius: 6px;
+                }
+                .username{
+                    @include flexstyle(column,center,flex-start,0);
+                    h3{
+                        font-size: 16px;
+                        font-weight: 600;
+                        margin: 0;
+                        padding: 0;
+                    }
+                    .status{
+                        span{
+                            font-size: 10px;
+                            color: $active-color;
+                        }
+                    }
+                }
+            }
+            .contact{
+                display: flex;
+                .button{
+                    color: $prime-color;
+                    cursor: pointer;
+                    width:25px;
+                    &:hover{
+                        background-color: $background3-color;
+                    }
+                }
+
+                
+            }
+        }
+// ======message content
+        .conv-content{
+            background-color: $background-color;
+            height: 75%;
+            overflow-y: scroll;
+            .otherMsg{
+                @include flexstyle(row,flex-start,center,0);
+                margin-bottom: 5px;
+                img{
+                    @include size(40px,40px) ;
+                    margin-left:  10px;
+                    border-radius: 6px;
+
+                }
+                .msg{
+                    background-color: #fff;
+                    width: fit-content;
+                    margin-left: 10px;
+                    padding: 10px;
+                    border-radius: 10px 20px 10px 0;
+                    p{
+                        margin: 0;
+                    }
+                    .name{
+                        font-weight: 500
+                    }
+                    .content{
+                    }
+                }
+            }
+            .myMsg{
+                @include flexstyle(row-reverse,flex-start,center,0);
+                margin-bottom: 5px;
+
+                .msg{
+                    width: fit-content;
+                    margin-right: 10px;
+                    .name{
+                        color: $prime-color;
+                        font-size: 16px;
+                        font-weight: 600;
+                    }
+                    .content{
+                        background-color:$prime-color ;
+                        padding: 10px;
+                        border-radius: 10px 20px 0 10px;
+
+                        p{
+                        margin: 0;
+                        color: #fff;
+                        }
+                        
+                    }
+                    .time {
+                        display: none;
+                    }
+                    &:hover{
+                            .time{
+                                display: block;
+                                color:$background3-color;
+
+                            }
+                        }
+                    
+                }
+                
+
+            }
+
+
+        }
+        .conv-tool{
+            height: 10%;
+            @include displayStyle(flex,center,center);
+            form{
+                width: 80%;
+                @include displayStyle(flex,space-between,center);
+                input{
+                    @include size(80% , 40px );
+                    border-radius: 5px;
+                    border: none;
+                    box-shadow: 0px 0px 10px 7-px rgba(0,0,0,0.1); ;
+
+                    &:focus{
+                        border: none;
+                        outline: none;
+                    }
+                }
+                .tool{
+                    cursor: pointer;
+                    &:hover{
+                        @include size(25px , 25px );
+                        font-weight: 600;
+                    }
+                }
+                .send{
+                    color: #fff;
+                    background-color: $prime-color;
+                    padding: 5px;
+                    border-radius: 50%;
+                    &:hover{
+                    font-size: 18px;
+                    }
+                }
+            }
+        }
+    }
+}

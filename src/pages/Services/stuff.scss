@@ -1,0 +1,43 @@
+@use '../../helper/mixin' as *;
+
+
+.stuff-page{
+    @include flexstyle(column ,center,center,10px);
+
+    .stuff-box{
+        height: 75vh;
+        overflow-y: scroll;
+        .nursingtext{
+            color: $prime-color;
+            cursor: pointer;
+        }
+        .stuff{
+            width: 100%;
+            @include flexstyle(column,center,center,5px);
+        }
+        .services{
+            @include flexstyle(column,center,center,5px);
+            width: 100%;
+            .service{
+                @include displayStyle(flex,center,center);
+                padding: 5px;
+                border: 2px solid $prime-color;
+                width: 60%;
+                border-radius: 25px;
+                height:50px ;
+                &.active{
+                    background-color: $prime-color;
+                    color: $secondly-color;
+                }
+                cursor: pointer;
+                p{
+                    margin: 0;
+                }
+                
+            }
+        }
+    }
+    .continue{
+        @include signButton(60%,40px,25px);
+    }
+}

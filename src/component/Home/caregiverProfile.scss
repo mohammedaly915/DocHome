@@ -1,0 +1,226 @@
+@use '../../helper/mixin' as *;
+
+.caregiver_profile {
+  @include flexstyle(column, center, center, 10px);
+
+  .caregiver_box {
+    @include flexstyle(column, center, normal, 10px);
+    width: 80%;
+    min-height: 100%;
+    margin: 10vh auto 10px auto;
+    background-color: $secondly-color;
+    border-radius: 10px;
+    box-shadow: -1px 0px 10px 8px rgba(0, 0, 0, 0.1);
+    text-transform: capitalize;
+    position: relative;
+    padding: 20px;
+
+    
+
+    .doctor_info {
+      @include displayStyle(flex, center, flex-start);
+      margin: 0 auto;
+      width: 80%;
+      border-bottom: 1px solid gray;
+      padding: 30px 0;
+      gap: 80px;
+
+      img {
+        border-radius: 50%;
+        width: 150px;
+        height: 150px;
+        object-fit: cover;
+        margin-right: 30px;
+      }
+
+      .doc_name {
+        @include flexstyle(column, flex-start, flex-start, 10px);
+        width: 70%;
+
+        .top {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          width: 100%;
+
+          h3 {
+            font-size: 1.5em;
+            color: $prime-color;
+            margin: 0;
+          }
+
+          .chat_icon {
+            background-color: $prime-color;
+            border: none;
+            border-radius: 5px;
+            padding: 10px;
+            cursor: pointer;
+            color: #fff;
+            transition: background-color 0.3s, transform 0.3s;
+      
+            &:hover {
+              background-color: darken($prime-color, 10%);
+              transform: scale(1.1);
+            }
+      
+            svg {
+              color: $background2-color;
+              font-size: 24px;
+              margin-left: 15px;
+            }
+          }
+        }
+
+        .doc_rate {
+          @include flexstyle(row, flex-start, center, 5px);
+
+          .stars {
+            display: flex;
+
+            .star {
+              color: gold;
+              font-size: 1.2em;
+            }
+          }
+
+          .digits {
+            margin-left: 10px;
+            font-size: 1em;
+            color: gray;
+          }
+        }
+
+        .summary {
+          font-size: 1em;
+          color: gray;
+          margin: 10px 0;
+        }
+        .btn{
+          @include displayStyle(flex, center ,center);
+          gap: 5px;
+          width: 100%;
+          .appointment_btn {
+            display: block;
+            width: 100%;
+            margin: 20px auto 0;
+            padding: 10px 0;
+            background-color: $prime-color;
+            color: white;
+            text-align: center;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+  
+            &:hover {
+              background-color: darken($prime-color, 10%);
+              transform: scale(1.05);
+            }
+          }
+          }
+
+      }
+    }
+
+    .doctor_specs {
+      width: 80%;
+      margin: 20px auto;
+
+      h3 {
+        font-size: 1.3em;
+        color: $prime-color;
+        margin-bottom: 10px;
+      }
+
+      .specs {
+        display: flex;
+        flex-wrap: wrap;
+
+        p {
+          background-color: $background2-color;
+          padding: 5px 10px;
+          border-radius: 5px;
+          margin: 5px;
+          font-size: 1em;
+          color: gray;
+        }
+      }
+    }
+
+    .feedback_section {
+      width: 100%;
+      margin: 20px 0;
+      padding: 20px;
+      background-color: $background2-color;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+
+      h3 {
+        font-size: 1.5em;
+        color: $prime-color;
+        margin-bottom: 20px;
+        text-align: center;
+      }
+
+      .feedback_item {
+        display: flex;
+        align-items: flex-start;
+        background-color: $secondly-color;
+        padding: 15px;
+        border-radius: 10px;
+        margin: 10px 0;
+        box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s, background-color 0.3s;
+
+        &:hover {
+          transform: translateY(-3px);
+          background-color: lighten($secondly-color, 5%);
+        }
+
+        .user_info {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          margin-right: 15px;
+
+          img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+          }
+
+          p {
+            font-size: 1em;
+            color: $prime-color;
+            margin: 0;
+          }
+        }
+
+        .comment_section {
+          flex: 1;
+
+          p {
+            font-size: 1em;
+            color: gray;
+            margin: 0 0 10px;
+          }
+
+          .stars {
+            display: flex;
+
+            .star {
+              color: gold;
+              font-size: 1.2em;
+            }
+          }
+        }
+      }
+
+      .user_feedback {
+        border: 2px solid $prime-color;
+      }
+    }
+  }
+}

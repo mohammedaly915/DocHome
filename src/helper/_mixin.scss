@@ -1,0 +1,256 @@
+$prime-color:#376B91;
+$mainly-color:#28343C;
+$background-color:#EEF3F7;
+$background2-color:#F5F5F5;
+$background3-color:gray;
+$secondly-color: #FFFFFF;
+$active-color:#1CBA2C;
+$cancel-color:#E86E6E;
+$white:#fff;
+$unactive:rgb(219, 219, 219);
+@mixin displayStyle($display,$justify,$align){
+    display: $display;
+    justify-content:$justify;
+    align-items:$align;
+}
+@mixin flexstyle($direction,$justify,$align,$gap) { 
+    @include  displayStyle(flex,$justify,$align);
+    flex-direction: $direction;
+    gap: $gap;
+
+}
+@mixin size($width,$height){
+    width: $width;
+    min-height: $height;
+}
+@mixin boxStyle($width,$height){
+    @include flexstyle(column,center,normal,0);
+    @include size($width,$height);
+    @include back-color-border($secondly-color,$mainly-color,1px solid $mainly-color ,10px );
+    text-transform: capitalize;
+    box-shadow: 5px 5px 10px 0px rgba(0,0,0,0.1);
+}
+
+
+@mixin back-color-border($back-ground,$color,$border,$radius){
+    background-color: $back-ground;
+    color: $color;
+    border-radius:$radius;
+    border: $border;
+}
+
+//Auth mixin Style
+
+
+
+@mixin AuthStyle($direction){
+    @include flexstyle(column,center,normal,10px);
+    @include size(90%,100%);
+    border-radius: 6px;
+    text-transform: capitalize;
+    box-shadow: 0px 0px 10px 10px rgba(0, 0, 0, 0.1);
+    min-height: 80vh;
+    @if $direction== "right"{
+        @media (max-width: 768px) {
+            width: 90vh;
+       }
+    }
+    @if $direction== "left"{
+        background-color: $prime-color;
+        @media (max-width: 768px) {
+            width: 90vh;
+       }
+    }
+}
+
+@mixin SignStyle() {
+    @include flexstyle(row,center,center,10px);
+    height: calc(100vh - 90px);
+    margin-top: 80px;
+    padding: 0 80px;
+    @media (max-width: 768px) {
+      }
+    
+    .region-left{
+        @include size(95%,80%);
+        @include back-color-border($mainly-color,$secondly-color,1px solid $mainly-color ,10px );
+        box-shadow: 5px 5px 10px 0px rgba(0,0,0,0.1);
+        @media (max-width: 768px) {
+            display: none; /* Hide on small screens */
+          }
+    }
+    
+  }
+@mixin SignPageStyle($page) {
+    @include flexstyle(row,center,center,10px);
+    min-height: calc(100vh - 90px);
+    margin-top: 80px;
+    @if $page=="register"{
+        padding: 0 50px;
+        @media (max-width: 768px) {
+
+          }
+    }
+    @if $page=="login"{
+        padding: 0 80px;
+        @media (max-width: 768px) {
+            padding: 0;
+          }
+    }
+    @if $page=="region"{
+        @include size(95%,80%);
+        @include back-color-border($mainly-color,$secondly-color,1px solid $mainly-color ,10px );
+        box-shadow: 5px 5px 10px 0px rgba(0,0,0,0.1);
+        @media (max-width: 768px) {
+            display: none; /* Hide on small screens */
+          }
+    }
+  }
+
+@mixin inputs($height, $width) {
+    box-shadow: 1px 1px 4px 0px rgba(0, 0, 0, 0.1) inset;
+    width: $width;
+    height: $height;
+    border-radius: 8px;
+    outline: none;
+    background-color: $background2-color;
+    padding-left: 10px;
+    color: $mainly-color;
+    border: none;
+    caret-color: $prime-color; /* Input caret design */
+    &::placeholder {
+        font-size: 10px;
+        font-weight: 500;
+        padding-left: 10px;
+        color: $mainly-color; /* Placeholder color update */
+        opacity: 0.7; /* Placeholder opacity update */
+    }
+}
+@mixin checkBoxs{
+    @include flexstyle(row,space-between,center,0);
+    width: 80%;
+}
+@mixin checkStyle {
+    input[type="checkbox"] {
+      appearance: none;
+      background-color: #fff;
+      width: 20px;
+      height: 20px;
+      border: 1px solid #ccc;
+      transition: background-color 0.3s, transform 0.3s;
+      cursor: pointer;
+      display: inline-block;
+      position: relative;
+      border-radius: 6px;
+  
+      &:checked {
+        background-color:$mainly-color;
+        border: 2px solid #fff;
+        border-radius: 6px;
+  
+        &::after {
+          content: '';
+          position: absolute;
+          left: 5px;
+          top: 2px;
+          width: 5px;
+          height: 10px;
+          border: solid #fff;
+          border-width: 0 2px 2px 0;
+          transform: rotate(45deg);
+        }
+      }
+    }
+  
+    input[type="checkbox"]:focus {
+      outline: none;
+    }
+  
+    input[type="checkbox"] + label {
+      font-size: 14px;
+      margin-left: 5px;
+      cursor: pointer;
+      color: #fff;
+      .link{
+        color: $mainly-color;
+        &:hover{
+            color: darken($mainly-color,10%);
+        }
+      }
+    }
+}
+@mixin signButton($width,$height,$radius){
+                width: $width;
+                height: $height;
+                outline: none;
+                border: none;
+                border-radius: $radius; 
+                background-color: $mainly-color;
+                color: #fff;
+                text-decoration: none;
+                line-height: $height;
+                cursor: pointer;
+}
+@mixin formStyle($height,$gap){
+            height:$height;
+            @include flexstyle(column,center,center ,$gap)
+}
+@mixin iconStyle{
+    .icons{
+        display: flex;
+        justify-content: center;
+        gap: 5px;
+        .icon{
+            @include size(30px,30px );
+            line-height: 30px;
+            // @include back-color-border($mainly-color,$secondly-color ,normal ,5px );
+            cursor: pointer;
+            transform: scale(1);
+            transition: transform ease-in-out 0.2s;
+            &.face:hover{
+                color:#376B95;
+                transform: scale(1.1)
+            }
+            &.google:hover{
+                color:#EA4335;
+                transform: scale(1.1)
+            }
+            &.x:hover{
+                color:$mainly-color;
+                transform: scale(1.1)
+
+            }
+        }
+    }
+}
+@mixin haveAccount{
+    h2{
+        height: 10%;
+        font-size: 14px;
+        font-weight: 400;
+        .span{
+            font-size: 16px;
+            font-weight: 500;
+            color:var(--main-color);
+            cursor: pointer;
+            text-decoration: underline;
+            
+        }
+    }
+}
+
+@mixin font-height($line_height,$size,$weight){
+    line-height: $line_height;
+    font-size: $size;
+    font-weight: $weight;
+
+}
+
+@mixin starRate($fontSize){
+        @include displayStyle(flex,flex-start,center) ;
+        .star{
+            color: gold;
+            font-size: $fontSize;
+        }
+}
+

@@ -1,0 +1,226 @@
+@use "../../helper/mixin" as *;
+
+.register{
+    @include SignPageStyle("register");
+    .left{
+        @include AuthStyle("left");
+        
+          form{
+            @include formStyle(80%,10px);
+            .name-inputs {
+                @include flexstyle(row, space-between, center, 0);
+                width: 80%;
+                .inputs {
+                    @include inputs(40px,48%);
+                }
+            }
+            .input-group {
+                width: 80%;
+                @include flexstyle(column,center,flex-start,2px);
+                label {
+                    color: #fff;
+                  }
+                .inputs{
+                    @include inputs(40px,80%);
+                }
+                .password-wrapper {
+                    display: flex;
+                    justify-content: flex-start;
+                    align-items: center;
+                    padding-left: 0;        
+                    &.inputs {
+                      flex: 1;
+                    }         
+                    .toggle-visibility {
+                      background: none;
+                      border: none;
+                      color: $prime-color;
+                      cursor: pointer;
+                      margin-left: 0.5rem;
+                      display: flex;
+                      align-items: center;
+                      transform: scale(1);
+                      transition: transform ease-in 0.2s;
+                      &:hover{
+                        transform: scale(1.1);
+                      }
+                    }
+                }
+
+
+            }
+            .input-wrapper {
+                width: 80%;
+                .input-group {
+                    width: 100%;
+                }
+                .validation-icons {
+                    display: flex;
+                    flex-direction: column;
+                    margin-top: 10px;
+                    .validation-item {
+                      display: flex;
+                      align-items: center;
+                      color: #fff;
+                      span {
+                          margin-right: 5px;
+                          }
+                      .check-icon {
+                          color: green;
+                          }
+                            
+                      .close-icon {
+                          color: red;
+                          }
+                    }
+                  }
+            }
+            .checkBox{
+                @include flexstyle(row,flex-start,center,2px) ;
+                width:70%; 
+                @include checkStyle;
+            }          
+            .button{
+                @include signButton(70%,40px,20px);
+            }
+        }
+    }
+    .right{
+        @include AuthStyle("right");
+        @media (max-width: 768px) {
+            display: none; /* Hide on small screens */
+          }
+        h1{
+            @include font-height(5%,20px,500);
+            margin-top: 50px;
+        }
+        img{
+            min-height: 30vh;
+            max-height: 50vh;
+        }
+        .otherSign{
+            height: 10%;
+            font-size: 14px;
+            font-weight: 500;
+            .signWith{
+                display: block;
+                height: 45%;
+            }        
+            @include iconStyle;
+        }
+        @include haveAccount;
+    }
+}
+.login{
+    @include SignPageStyle("login");
+    .left{
+        @include AuthStyle("left");
+        @media (max-width: 768px) {
+            display: none; /* Hide on small screens */
+          }
+    }
+    .right{
+        @include AuthStyle("right");
+        .right-box{
+            height: 90%;
+            @include flexstyle(column,center,normal,5px);
+            h1{
+                font-size: 20px;
+                font-weight: 500;
+            }
+            form{
+                @include formStyle(100%,10px);
+                .inputs{
+                    @include inputs(40px,70%);
+                }
+                .input-group {
+                    width: 80%;
+                    @include flexstyle(column,center,flex-start,5px);
+                    .password-wrapper {
+                        display: flex;
+                        align-items: center; 
+                        &.inputs {
+                          flex: 1;
+                          padding-left: 0;               
+
+                        }
+                
+                        .toggle-visibility {
+                          background: none;
+                          border: none;
+                          cursor: pointer;
+                          margin-left: 0.5rem;
+                          display: flex;
+                          align-items: center;
+                        }
+                    }
+                    .inputs{
+                        @include inputs(40px,80%);
+                        
+                    }
+                    label {
+                      color: $prime-color;
+                      font-weight: 500;
+                    }
+                  }
+                .check-forget{
+                    width: 70%;
+                    @include checkBoxs;
+                    .checkBox{
+                        @include flexstyle(row,flex-start,center,2px) ;
+                        width:70%; 
+                        @include checkStyle;
+                    }
+                     .forget{
+                            width: 50%;
+                            color: var(--main-color);
+                            text-decoration: underline;
+                            text-align: end;    
+                     }
+                }        
+                .button{
+                    @include signButton(70%,40px,20px);
+    
+                }
+                  }
+                .otherSign{
+                    height: 10%;
+                    font-size: 14px;
+                    font-weight: 500;
+                    .signWith{
+                        display: block;
+                        height: 45%;
+                    }        
+                    @include iconStyle;
+                }
+            @include haveAccount;
+        }
+    }
+}
+.region{
+    @include SignStyle;
+    .region-right{
+        @include AuthStyle("right");
+        h1{
+            height: 5%;
+            font-weight: 500;
+            font-size: 20px;
+            @include font-height(5%,20px,500);
+        }
+        form{
+            @include formStyle(60%,10px);
+            .custom-select{
+            width: 80%;
+            select{
+            width: 100%;
+            option{
+            width: 100%;
+            }
+            }
+        }
+        .button{
+            @include signButton(50%,40px,10px);
+        }
+        }
+    }
+}

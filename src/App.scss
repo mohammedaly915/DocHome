@@ -1,0 +1,170 @@
+@use "./helper/mixin" as *;
+:root{
+    --main-color:#28343C;
+    --second-color:#fff
+}
+.App {
+text-align: center;
+background-color: $white;
+}
+h1,h2,h3,p{
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+}
+
+//scrollbar
+/* Global CSS file */
+
+input[type='number']::-webkit-outer-spin-button,
+input[type='number']::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type='number'] {
+  -moz-appearance: textfield;
+}
+
+
+*::-webkit-scrollbar {
+    height: 7px;
+    width: 7px;
+  }
+  *::-webkit-scrollbar-track {
+    border-radius: 2px;
+    background-color: transparent;
+    
+    &:active {
+        background-color: #B8C0C2;
+      }
+  }  
+  *::-webkit-scrollbar-thumb {
+    border-radius: 20px;
+    background-color: $prime-color;
+    &:hover {
+        background-color: $mainly-color;
+      }
+    &:active {
+        background-color:$prime-color;
+      }
+  }
+  
+
+@media (prefers-reduced-motion: no-preference) {
+.App-logo {
+    animation: App-logo-spin infinite 20s linear;
+}
+}
+@keyframes App-logo-spin {
+from {
+    transform: rotate(0deg);
+}
+to {
+    transform: rotate(360deg);
+}
+}
+
+/*///////////////////////////////////////
+        nav Bar
+/////////////////////////////////////*/
+
+ 
+ 
+
+/*///////////////////////////////////////
+        Register and Login Style
+/////////////////////////////////////*/
+
+
+/*//////////////////////
+       Forget password and verfiy
+    /////////////*/
+.back{
+    @include SignStyle;
+    .box{
+        @include boxStyle(60%,60%);
+        form{
+            @include formStyle(60%,10px);
+            .inputs-group{
+                @include flexstyle(row,center,center,10px);
+                .input-verify{
+                    @include inputs(40px,40px )
+                }
+            }
+            .inputs{
+                @include inputs(40px,70% )
+            }
+            .button{
+                @include signButton(50%,40px,20px )
+            }
+            
+        }
+    }
+}
+
+/*//////////////////////////////////////
+      Verfiy Doctor 
+    /////////////////////*/
+.back-box-verify{
+    @include SignStyle;
+    .box-verify{
+        @include boxStyle(100%,80%); 
+        margin-top:70px;
+        align-items: center;
+        form{
+            
+            @include formStyle(70%,10px);//height , gap
+            width: 50%;
+            font-size: 12px;
+            font-weight: 600;
+            .select-group{
+                @include size(100%,30%);
+                @include flexstyle(column,center,center,10px)
+            }
+            .card-group{
+                @include size(60%,40%);
+                @include flexstyle(column,space-between,center,10px);
+                .card-item{
+                    @include size(100%,20%);
+                    @include flexstyle(row,space-between,center,10px);
+                    .custom_upload{
+                        @include size(30%,100%);
+                        input{
+                            display: none;
+                        }
+                        .upload{
+                            @include displayStyle(flex,center,center);
+                            @include font_height(100%,10px,400);
+                            width: 100%;
+                            color: $secondly-color;
+                            background-color: $mainly-color;
+                            padding: 10px;
+                            border-radius: 5px;
+                            cursor: pointer;
+        
+                        }
+                    }
+                    label{
+                        @include size(60%,100%);
+                        text-align: start;
+                    }
+                }
+            }
+            button{
+                @include signButton(80%,40px,10px)
+            }
+        }
+        p{
+            height: 10%;
+            .span{
+                color:$prime-color;
+                cursor: pointer;
+                text-decoration: underline;    
+                font-weight: 600;          
+            }
+        }
+    }
+}
+
+

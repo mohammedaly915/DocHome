@@ -1,0 +1,112 @@
+@use '../../helper/mixin' as *;
+
+.add-feedback-popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); // Darker background
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+
+  .add-service-popup {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 600px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    position: relative;
+
+    .close-button {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: none;
+      border: none;
+      font-size: 20px;
+      cursor: pointer;
+      transition: color 0.3s;
+
+      &:hover {
+        color: red;
+      }
+    }
+
+    .services-title {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    .user-info {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 20px;
+
+      .user-image {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-bottom: 10px;
+      }
+
+      .user-name {
+        font-size: 20px;
+        font-weight: bold;
+      }
+    }
+
+    form {
+      @include formStyle(100%, 20px);
+
+      .form-group {
+        @include flexstyle(column, flex-start, normal, 0);
+        margin-bottom: 20px;
+        width: 80%;
+        margin: 0 auto;
+
+        label {
+          margin-bottom: 5px;
+          font-weight: bold;
+        }
+
+        textarea {
+          @include inputs(40px, 100%);
+          resize: none; // Prevent textarea resize
+        }
+
+        .rating {
+          display: flex;
+          justify-content: center;
+          margin-top: 10px;
+
+          .star {
+            cursor: pointer;
+            font-size: 24px;
+            transition: color 0.2s;
+
+            &.border {
+              color: #ccc;
+            }
+
+            &.gold {
+              color: gold;
+            }
+          }
+        }
+      }
+
+      button {
+        @include signButton(80%, 40px, 8px);
+        color: #fff;
+        margin-top: 20px;
+      }
+    }
+  }
+}
